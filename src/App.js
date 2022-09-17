@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/header/header";
+
+import Footer from "./components/footer/footer";
+import Container from "./layout/container/container";
+import Section from "./layout/section/section";
+import MovieList from "./components/muvies/movieList";
+import { useState } from "react";
 
 function App() {
+  const [sectiontoggle, setSectionToggle] = useState({
+    first: "По ТВ",
+    second: "По ТВ",
+    third: "Сегодня",
+  });
+
+  const handleToggledValue = (section, selectedValue) => {
+    setSectionToggle((prev) => {
+      return {
+        ...prev,
+        [section]: selectedValue,
+      };
+    });
+  };
+
+  console.log(sectiontoggle.first);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <Container>
+        <Header />
+        <Section
+          title="Что популярно"
+          items={["По ТВ", "В кинотеатрах"]}
+          onToggle={handleToggledValue.bind(null, "first")}
+          isToggled={sectiontoggle.first === "По ТВ" ? false : true}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <MovieList fetch={sectiontoggle.first} />
+        </Section>
+      </Container>
+      <Footer />
+    </>
   );
 }
 
