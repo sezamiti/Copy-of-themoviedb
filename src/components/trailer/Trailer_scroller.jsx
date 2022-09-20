@@ -1,5 +1,8 @@
 import React from 'react'
 
+
+
+
 const TrailerScroller = () => {
   return (
     <h1 className="h-[300px] bg-banner bg-cover">

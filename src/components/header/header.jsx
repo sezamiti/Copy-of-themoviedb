@@ -4,11 +4,16 @@ import { useRef } from "react";
 
 
 
+
 const Header = () => {
   const searchInputRef = useRef();
-
+ 
   const hundleSearch =(e)=>{
-    // console.log(searchInputRef.current.value);
+    // const serchThem = searchInputRef.current.value
+    console.log(searchInputRef.current.value);
+    console.log( fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7f821069f8a6715215674242b7ecc9f7&language=ru-US&page=1`).then((response) => response.json())
+    .then(data=>{console.log(data.results);}));
+    
   }
 
   const hundleKeyDown =(e)=>{

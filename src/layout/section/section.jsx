@@ -1,7 +1,7 @@
 import React from 'react' 
 import Switch from '../../baseUI/switch/switch'
 
-const Section = ({title,children, ...props}) => {
+const Section2 = ({title,children, ...props}) => {
   return (
     <section className='pt-[30px] relative'>
         <div className="flex items-center gap-5 px-10">
@@ -15,4 +15,4 @@ const Section = ({title,children, ...props}) => {
   )
 }
 
-export default Section
+export default Section2

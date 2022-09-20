@@ -1,33 +1,33 @@
 import { useEffect, useState } from "react"
-import MovieCard from "./movieCard" 
+import TrendCard from "./TrendCard"
+import { trend } from "../../api/trend"
 
 
 import tmdb from "../../api/tmdb"
-import { request } from "../../api/request"
 import Blur from "../../baseUI/blur/blur"
 
 
 
-const MovieList = ({fetch}) => {
 
-    const [movies, setmovies] = useState([])
+const TrendList = ({fetch}) => {
+
+    const [movies2, setmovies2] = useState([])
 
     useEffect(()=>{
         const fetchMovies = async() =>{
-            const {data} = await tmdb.get(request[fetch])
-            setmovies(data.results)
+            const {data} = await tmdb.get(trend[fetch])
+            setmovies2(data.results)
         }
 
         fetchMovies()
-        
-
+       
     },[fetch])
 
-    // console.log('movieList');
+
   return (
     <div className="flex pb-5 pr-9 pl-5 overflow-x-auto ">
-        {movies?.map((movie, index)=>{
-            return <MovieCard key={index} {...movie}/>
+        {movies2?.map((movie, index)=>{
+            return <TrendCard key={index} {...movie}/>
         })}
         <div className="absolute top-0 right-0  w-16 h-full">
             <Blur/>
@@ -35,4 +35,4 @@ const MovieList = ({fetch}) => {
     </div>
   )
 }
-export default MovieList
+export default TrendList
