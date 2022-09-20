@@ -4,6 +4,7 @@ import MovieCard from "./movieCard"
 
 import tmdb from "../../api/tmdb"
 import { request } from "../../api/request"
+import Blur from "../../baseUI/blur/blur"
 
 
 
@@ -24,10 +25,13 @@ const MovieList = ({fetch}) => {
 
     // console.log('movieList');
   return (
-    <div className="flex pb-5 px-5 overflow-x-auto">
+    <div className="flex pb-5 pr-9 pl-5 overflow-x-auto ">
         {movies?.map((movie, index)=>{
             return <MovieCard key={index} {...movie}/>
         })}
+        <div className="absolute top-0 right-0  w-16 h-full">
+            <Blur/>
+        </div>
     </div>
   )
 }

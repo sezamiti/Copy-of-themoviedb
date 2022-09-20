@@ -5,6 +5,7 @@ import Container from "./layout/container/container";
 import Section from "./layout/section/section";
 import MovieList from "./components/muvies/movieList";
 import { useState } from "react";
+import TrailerScroller from "./components/trailer/Trailer_scroller";
 
 function App() {
   const [sectiontoggle, setSectionToggle] = useState({
@@ -37,6 +38,7 @@ function App() {
           <MovieList fetch={sectiontoggle.first} />
         </Section>
       </Container>
+      <TrailerScroller />
       <Footer />
     </>
   );

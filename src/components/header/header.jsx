@@ -8,7 +8,7 @@ const Header = () => {
   const searchInputRef = useRef();
 
   const hundleSearch =(e)=>{
-    console.log(searchInputRef.current.value);
+    // console.log(searchInputRef.current.value);
   }
 
   const hundleKeyDown =(e)=>{
